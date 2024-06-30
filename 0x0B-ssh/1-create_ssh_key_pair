@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This code generate RRSA key pairs
+
+ssh-keyge -t rsa -P betty -f ~/ssh/school
