@@ -7,7 +7,7 @@ package { 'flask':
 
 #This script install werkzeug from pip3 using puppet
 
-package { 'werkzueg':
+package { 'werkzeug':
   ensure   => '2.1.1',
   provider => 'pip3',
 }
