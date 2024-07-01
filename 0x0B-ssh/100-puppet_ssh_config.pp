@@ -1,14 +1,32 @@
 #!/usr/bin/env bash
-# Puppet script to create ssh config file
+# using puppet to make changes to the default ssh config file
+# so that one can connect to a server without typing a password.
 
-file { 'Turn off passwd auth':
-  ensure => 'present',
-  path   => '/etc/ssh/ssh_config',
-  line   => '    PasswordAuthentication no',
+file {'/etc/ssh/ssh_config':
+  ensure =>  'present',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
 }
 
-file { 'Declare identity file':
+file_line { 'Turn off passed auth':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'PasswordAuthentication no',
+  match   => '^PasswordAuthentication yes',
+  replace => true,
+}
+
+file_line { 'Declare Identity file':
   ensure => 'present',
+  line   => 'IdentityFilw ~/.ssh.school',
+  match  => '^IdentityFile',
   path   => '/etc/ssh/ssh_config',
-  line   => '    IdentityFile ~/.ssh/school',
+}
+
+
+# Ensure that Host * is present before other lines
+file_line { 'Ensure Host *':
+  path  => '/etc/ssh/ssh_config',
+  line  => 'Host *',
+  match => '^Host \*',
 }
