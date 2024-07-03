@@ -19,9 +19,9 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 
 #Performing a 301 Redirection
 
-string="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com/Emmalywebcreator peermanent;"
+string-1="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com/Emmalywebcreator peermanent;"
 
-sudo sed -i "s/server_name _;/$string/" /etx/nginx/sites_enabled/default
+sudo sed -i "s/server_name _;/$string-1/" /etc/nginx/sites-enabled/default
 
 # Test Nginx configuration
 sudo nginx -t
