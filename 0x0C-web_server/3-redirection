@@ -1,28 +1,16 @@
 #!/usr/bin/env bash
-# Steps to configure Nginx on server
+#  A Script that configures a new Ubuntu machine to Perform a 301-redirection
 
-# Update package lists
-sudo apt-get update -y
-
-# Install Nginx
+# Upadating Packages before Installations
+sudo apt-get update
 sudo apt-get install -y nginx
 
-# Install and enable UFW (if needed)
-sudo apt-get install -y ufw
-sudo ufw enable
-
-# Allow 'Nginx HTTP' through the firewall
-sudo ufw allow 'Nginx HTTP'
-
-# Create a simple HTML page
+# Creating an index.html page
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
-#Performing a 301 Redirection
+# Performing a 301 Redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/besthor permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-string-1="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com/Emmalywebcreator peermanent;"
-
-sudo sed -i "s/server_name _;/$string-1/" /etc/nginx/sites-enabled/default
-
-
-# restart Nginx to apply changes
+# Restarting Nginx service
 sudo service nginx restart
