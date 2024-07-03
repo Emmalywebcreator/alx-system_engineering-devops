@@ -19,7 +19,7 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 
 #Performing a 301 Redirection
 
-string="server_name -;\n\trewrite ^\/redirect_me https:\/\/youtube.com peermanent;"
+string="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com/Emmalywebcreator peermanent;"
 
 sudo sed -i "s/server_name _;/$string/" /etx/nginx/sites_enabled/default
 
