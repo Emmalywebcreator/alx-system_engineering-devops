@@ -12,7 +12,7 @@ ip=$2
 username=$3
 path_to_ssh_key=$4
 
-scp -o StrictHostKeyChecking=no -i "$path_to_ssh_key" "$path_to_file" "$username@ip":~/
+scp -o StrictHostKeyChecking=no -i "$path_to_ssh_key" "$path_to_file" "$username@$ip":~/
 
 if [ $? -eq 0 ]
 then
