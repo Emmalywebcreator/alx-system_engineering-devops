@@ -4,9 +4,6 @@
 
 file {'/etc/ssh/ssh_config':
   ensure =>  'present',
-  owner  => 'root',
-  group  => 'root',
-  mode   => '0644',
 }
 
 file_line { 'Turn off passed auth':
