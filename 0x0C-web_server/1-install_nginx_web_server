@@ -11,4 +11,3 @@ sudo nginx -t
 
 sudo service nginx reload
 
-sudo systemctl enable nginx
