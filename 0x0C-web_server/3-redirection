@@ -23,9 +23,6 @@ string-1="server_name -;\n\trewrite ^\/redirect_me https:\/\/github.com/Emmalywe
 
 sudo sed -i "s/server_name _;/$string-1/" /etc/nginx/sites-enabled/default
 
-# Test Nginx configuration
-sudo nginx -t
 
-
-# Start Nginx to apply changes
+# restart Nginx to apply changes
 sudo service nginx restart
