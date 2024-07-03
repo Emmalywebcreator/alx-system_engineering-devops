@@ -19,11 +19,3 @@ file_line { 'Declare Identity file':
   match  => '^IdentityFile',
   path   => '/etc/ssh/ssh_config',
 }
-
-
-# Ensure that Host * is present before other lines
-file_line { 'Ensure Host *':
-  path  => '/etc/ssh/ssh_config',
-  line  => 'Host *',
-  match => '^Host \*',
-}
