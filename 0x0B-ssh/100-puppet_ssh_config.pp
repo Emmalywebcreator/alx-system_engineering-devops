@@ -15,7 +15,7 @@ file_line { 'Turn off passed auth':
 
 file_line { 'Declare Identity file':
   ensure => 'present',
-  line   => 'IdentityFilw ~/.ssh.school',
+  line   => 'IdentityFile ~/.ssh.school',
   match  => '^IdentityFile',
   path   => '/etc/ssh/ssh_config',
 }
