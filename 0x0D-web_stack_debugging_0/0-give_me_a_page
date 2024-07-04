@@ -1,6 +1,4 @@
-# fix my code
+#!/usr/bin/env bash
+#start apache2 inside docker
 
-exec { 'fix-error':
-  command => '/bin/sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/var/www/html/wp-settings.php',
-}
+service apache2 start
