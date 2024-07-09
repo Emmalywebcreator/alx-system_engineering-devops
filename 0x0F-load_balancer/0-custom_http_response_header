@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env bash
 #configuration of web-01 to have HTTP response header
 
 # Updating Packages before performing installations
