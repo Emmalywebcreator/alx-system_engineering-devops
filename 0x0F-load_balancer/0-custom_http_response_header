@@ -1,4 +1,5 @@
-ustomizing a 404-error_page
+#!/usr/bin/python3
+#configration of web-01 to have HTTP response header
 
 # Updating Packages before performing installations
 sudo apt-get update
