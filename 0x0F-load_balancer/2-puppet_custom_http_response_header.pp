@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Configuration with puppet
 
-exec { 'http header':
-  command => 'sudo apt-get update -y;
-  sudo apt-get install nginx -y;
-  sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME" /etc/nginx/site-availabe/default
-  sudo nginx service nginx restart',
+# Puppet configuration for Nginx
+
+exec { 'install_nginx':
+  command => 'sudo apt-get update -y && sudo apt-get install nginx -y',
   provider => shell,
+}
+
+exec { 'configure_nginx':
+  command => 'sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME" /etc/nginx/sites-available/default && sudo systemctl restart nginx',
+  provider => shell,
+  require => Exec['install_nginx'],
 }
