@@ -9,7 +9,7 @@ sudo chown $USER:USER /etc/haproxy/haproxy.cfg
 # Configuration
 echo"
 frontend emmalywebcreator.tech
-    bind 0:80
+    bind *:80
     default_backend emmalywebcreator.tech
 
 backend emmalywebcreator.tech
