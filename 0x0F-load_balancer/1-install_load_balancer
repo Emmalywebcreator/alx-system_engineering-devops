@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Installing and configuration of HAProxy
+
+# Installation
+sudo apt-get update
+sudo apt-get install -y haproxy
+sudo chown $USER:USER /etc/haproxy/haproxy.cfg
+
+# Configuration
+echo"
+frontend emmalywebcreator.tech
+    bind 0:80
+    default_backend emmalywebcreator.tech
+
+backend emmalywebcreator.tech
+    balance roundrobin
+    server 436889-web-01 100.25.152.69:80 check
+    server 436889-web-02 34.227.94.172:80 check"
+                                                >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
