@@ -7,15 +7,15 @@ sudo apt-get install -y haproxy
 sudo chown $USER:USER /etc/haproxy/haproxy.cfg
 
 # Configuration
-echo"
+echo "
 frontend emmalywebcreator.tech
     bind *:80
     default_backend emmalywebcreator.tech
 
 backend emmalywebcreator.tech
     balance roundrobin
-    server 436889-web-01 100.25.152.69:80 check
-    server 436889-web-02 34.227.94.172:80 check"
-                                                >> /etc/haproxy/haproxy.cfg
+    server 436889-web-01 54.146.66.34:80 check
+    server 436889-web-02 100.25.34.97:80 check
+" | sudo -a tee /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
