@@ -16,6 +16,6 @@ backend emmalywebcreator.tech
     balance roundrobin
     server 436889-web-01 54.146.66.34:80 check
     server 436889-web-02 100.25.34.97:80 check
-" | sudo -a tee /etc/haproxy/haproxy.cfg
+" >>/etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
