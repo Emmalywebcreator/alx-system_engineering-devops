@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Fetch TODO list progress for a given employee ID."""
-import sys
 import requests
+import sys
 
 
 def get_employee_todo_progress():
