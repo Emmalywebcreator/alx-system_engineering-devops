@@ -25,3 +25,8 @@ def number_of_subscribers(subreddit):
 
     except Exception:
         return 0
+
+
+if __name__ == "__main__":
+    print(number_of_subscribers("python"))
+    print(number_of_subscribers("nonexistingsubreddit"))
