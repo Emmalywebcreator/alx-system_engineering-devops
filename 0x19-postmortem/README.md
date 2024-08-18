@@ -51,6 +51,31 @@ Implement automated monitoring solutions that trigger alerts when SSH access fai
 Explore the use of configuration management tools like Ansible or Terraform to standardize and automate server and firewall configurations across environments.
 
 
++-----------------+                     +-----------------------+
+|                 |  SSH Request        |                       |
+|   Sysadmin's    |-------------------->|   Server Firewall     |
+|     Machine     |                     | (UFW Blocking Port 22)|
+|                 |<--------------------|                       |
++-----------------+  "Connection Timed  +-----------------------+
+|                 |   Out" Message      |                       |
++-----------------+                     +-----------------------+
+
++-----------------+                     +-----------------------+
+|                 |  Update Firewall    |                       |
+|  UFW Config Fix |-------------------->|   Server Firewall     |
+| (Allow SSH Port |                     | (UFW Allows Port 22)  |
+|       22)       |                     |                       |
++-----------------+                     +-----------------------+
+
++-----------------+                     +-----------------------+
+|                 |  SSH Request        |                       |
+|   Sysadmin's    |-------------------->|    Server Firewall    |
+|     Machine     |                     | (UFW Allows Port 22)  |
+|                 |                     |                       |
+|                 |<--------------------|                       |
+|                 |  "Welcome to SSH"   |                       |
++-----------------+                     +-----------------------+
+
 Prepared by: Ohwoka Emmanuel
 Date: August 17, 2024
 
