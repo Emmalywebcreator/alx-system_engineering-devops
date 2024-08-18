@@ -1,6 +1,6 @@
 #fixing wordpress 501 error by changing phpp to php in /var/www/wp_settings.php
 
-exec { 'fix-word_press_server_error':
+exec { 'fix-wordpress-server-error':
     command => 'sed -i s/phpp/php/g /var/www/html/wp-settings',
-    path    => '/usr/bin/:bin',
+    path    => '/usr/bin/:bin/',
 }
