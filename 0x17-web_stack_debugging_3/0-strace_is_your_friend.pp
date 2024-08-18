@@ -1,6 +1,9 @@
-#A puppet code that fixes wordpress 501 error by changing phpp to php in /var/www/wp_settings.php
+# Fix WordPress 501 error by changing phpp to php in wp-settings.php
 
-exec { 'fix-wordpress-server-error':
-    command => 'sed -i s/phpp/php/g /var/www/html/wp-settings',
-    path    => '/usr/bin/:bin/',
+file { 'fix_wordpress_error':
+  path     => '/var/www/wp-settings.php',
+  ensure   => present,
+  replace  => {
+    'phpp' => 'php',
+  },
 }
